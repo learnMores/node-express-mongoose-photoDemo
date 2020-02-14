@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1><%= title %></h1>
+  <p>Express stock photo application.</p>
+  <p><a href="/upload"><button>上传图片</button></a></p>
+  <div>
+    <% photos.forEach(function(photo){ %>
+    <div class="photo">
+      <h2>
+        <%= photo.name %>
+      </h2>
+      <a href="/download/<%= photo._id %>">
+        <img src="/photos/<%= photo.path %>">
+      </a>
+      <div class="delete">
+        <a href="/delete/<%= photo._id %>">
+          <button>删除</button>
+        </a>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</body>
+
+</html>
